@@ -13,9 +13,10 @@ import json
 import sys
 from pathlib import Path
 
-PROJECT_ROOT = Path(__file__).resolve().parent
-if str(PROJECT_ROOT) not in sys.path:
-    sys.path.insert(0, str(PROJECT_ROOT))
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+BACKEND_DIR = PROJECT_ROOT / "backend"   # the frontend reuses the backend's code and saved models
+if str(BACKEND_DIR) not in sys.path:
+    sys.path.insert(0, str(BACKEND_DIR))
 
 import joblib  # noqa: E402
 import numpy as np  # noqa: E402
