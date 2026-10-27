@@ -1,0 +1,7 @@
+feature,q1,q3,lower_fence,upper_fence,n_outliers,action
+age,48.0,61.0,28.5,80.5,0,kept (plausible clinical value)
+trestbps,120.0,140.0,90.0,170.0,9,kept (plausible clinical value)
+chol,211.0,275.0,115.0,371.0,5,kept (plausible clinical value)
+thalach,133.5,166.0,84.75,214.75,1,kept (plausible clinical value)
+oldpeak,0.0,1.6,-2.4000000000000004,4.0,5,kept (plausible clinical value)
+ca,0.0,1.0,-1.5,2.5,20,kept (plausible clinical value)

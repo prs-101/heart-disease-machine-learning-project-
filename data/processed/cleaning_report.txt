@@ -1,0 +1,89 @@
+
+======================================================================
+1. RAW DATA - BEFORE CLEANING
+======================================================================
+Source file : data\raw\heart_disease.csv
+Shape       : 303 rows x 14 columns
+Columns     : ['age', 'sex', 'cp', 'trestbps', 'chol', 'fbs', 'restecg', 'thalach', 'exang', 'oldpeak', 'slope', 'ca', 'thal', 'num']
+
+Data types:
+  age        float64
+  sex        float64
+  cp         float64
+  trestbps   float64
+  chol       float64
+  fbs        float64
+  restecg    float64
+  thalach    float64
+  exang      float64
+  oldpeak    float64
+  slope      float64
+  ca         float64
+  thal       float64
+  num        int64
+
+Missing values (originally '?'): 6 in total
+  ca         4 missing (1.3%)
+  thal       2 missing (0.7%)
+
+Original target 'num' distribution (0 = no disease, 1-4 = disease):
+  num = 0 : 164
+  num = 1 : 55
+  num = 2 : 36
+  num = 3 : 35
+  num = 4 : 13
+
+======================================================================
+2. DUPLICATES
+======================================================================
+Exact duplicate rows found: 0
+No duplicates - nothing removed.
+
+======================================================================
+3. INVALID VALUES
+======================================================================
+All values are within documented codes and physically plausible ranges.
+Invalid values are converted to missing (imputed later inside the pipeline), not deleted.
+
+======================================================================
+4. TARGET CONVERSION (multi-class -> binary)
+======================================================================
+target = 0 if num == 0 (no heart disease); target = 1 if num in 1-4 (disease present)
+  target = 0 : 164 (54.1%)
+  target = 1 : 139 (45.9%)
+Original 'num' column dropped - keeping it would leak the answer into the features.
+
+======================================================================
+5. VARIABLE TYPES
+======================================================================
+Numerical   (6): ['age', 'trestbps', 'chol', 'thalach', 'oldpeak', 'ca']
+Categorical (7): ['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'thal']
+'ca' (0-3 vessels) is an ordered count, so it is treated as numerical.
+Categorical codes replaced with readable labels, e.g. cp 4 -> 'asymptomatic'.
+
+======================================================================
+6. OUTLIERS (IQR rule, reported only)
+======================================================================
+  age        0 value(s) outside [28.5, 80.5]
+  trestbps   9 value(s) outside [90.0, 170.0]
+  chol       5 value(s) outside [115.0, 371.0]
+  thalach    1 value(s) outside [84.8, 214.8]
+  oldpeak    5 value(s) outside [-2.4, 4.0]
+  ca         20 value(s) outside [-1.5, 2.5]
+Decision: outliers are KEPT. They are plausible patient values (e.g. high cholesterol), and removing real data to improve accuracy is not justified.
+
+======================================================================
+7. CLEANED DATA - AFTER CLEANING
+======================================================================
+Shape: 303 rows x 14 columns
+Missing values still present: 6
+  ca         4 -> will be imputed inside the model pipeline (median / most-frequent, fitted on TRAINING data only)
+  thal       2 -> will be imputed inside the model pipeline (median / most-frequent, fitted on TRAINING data only)
+
+Saved cleaned dataset -> data\processed\heart_disease_clean.csv
+Saved summaries       -> summary_before_cleaning.csv, summary_after_cleaning.csv, outlier_report.csv
+
+======================================================================
+LEAKAGE NOTE
+======================================================================
+Only rule-based steps were applied to the full dataset (duplicates, invalid codes, target conversion, label mapping). Imputation, scaling and one-hot encoding are fitted after the train/test split, on the training data only.

@@ -1,0 +1,13 @@
+Random Forest - test set (61 patients)
+
+                precision    recall  f1-score   support
+
+No disease (0)     0.9333    0.8485    0.8889        33
+   Disease (1)     0.8387    0.9286    0.8814        28
+
+      accuracy                         0.8852        61
+     macro avg     0.8860    0.8885    0.8851        61
+  weighted avg     0.8899    0.8852    0.8854        61
+
+
+EDUCATIONAL USE ONLY: this project is a machine-learning exercise on a small 1988 research dataset. It is NOT a clinically validated diagnostic system and must never be used to make medical decisions.

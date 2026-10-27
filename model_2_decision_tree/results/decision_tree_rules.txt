@@ -1,0 +1,22 @@
+|--- thal_normal <= 0.50
+|   |--- cp_asymptomatic <= 0.50
+|   |   |--- weights: [17.00, 17.00] class: 0
+|   |--- cp_asymptomatic >  0.50
+|   |   |--- oldpeak <= 0.85
+|   |   |   |--- weights: [7.00, 15.00] class: 1
+|   |   |--- oldpeak >  0.85
+|   |   |   |--- thalach <= 127.50
+|   |   |   |   |--- weights: [1.00, 19.00] class: 1
+|   |   |   |--- thalach >  127.50
+|   |   |   |   |--- weights: [0.00, 30.00] class: 1
+|--- thal_normal >  0.50
+|   |--- ca <= 0.50
+|   |   |--- age <= 57.50
+|   |   |   |--- thalach <= 159.50
+|   |   |   |   |--- weights: [17.00, 3.00] class: 0
+|   |   |   |--- thalach >  159.50
+|   |   |   |   |--- weights: [48.00, 0.00] class: 0
+|   |   |--- age >  57.50
+|   |   |   |--- weights: [21.00, 8.00] class: 0
+|   |--- ca >  0.50
+|   |   |--- weights: [20.00, 19.00] class: 0

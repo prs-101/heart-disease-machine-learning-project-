@@ -1,0 +1,13 @@
+{
+  "model": "Random Forest",
+  "cv_scoring": "roc_auc",
+  "cv_folds": 5,
+  "best_cv_score": 0.9011,
+  "best_params": {
+    "classifier__max_depth": null,
+    "classifier__max_features": "sqrt",
+    "classifier__min_samples_leaf": 5,
+    "classifier__n_estimators": 500
+  },
+  "n_training_rows": 242
+}

@@ -1,0 +1,36 @@
+FINAL MODEL COMPARISON - held-out test set (61 patients: 28 with disease, 33 without)
+==============================================================================
+          Algorithm  Accuracy  Precision  Recall  F1-score  ROC-AUC
+Logistic Regression    0.8852     0.8387  0.9286    0.8814   0.9610
+      Decision Tree    0.7705     0.8889  0.5714    0.6957   0.8420
+      Random Forest    0.8852     0.8387  0.9286    0.8814   0.9535
+
+Errors per model:
+          Algorithm  FN  FP  Specificity
+Logistic Regression   2   5       0.8485
+      Decision Tree  12   2       0.9394
+      Random Forest   2   5       0.8485
+
+TIE on accuracy (0.8852) between: Logistic Regression, Random Forest. Use recall / ROC-AUC below to choose between them.
+Highest recall (fewest missed disease cases): Logistic Regression, Random Forest (0.9286)
+Highest ROC-AUC (best ranking ability)     : Logistic Regression (0.9610)
+Fewest false negatives                     : Logistic Regression, Random Forest (2)
+
+WHY ACCURACY ALONE IS NOT ENOUGH IN MEDICAL CLASSIFICATION
+-----------------------------------------------------------
+* Accuracy counts every mistake equally. In screening, the two mistakes are not equal:
+  - False Negative (FN): a sick patient is told "no disease" -> treatment is delayed.
+    This is usually the most dangerous error.
+  - False Positive (FP): a healthy patient is flagged -> extra tests, anxiety, cost,
+    but the error is normally caught by follow-up tests.
+* Recall (sensitivity) = TP / (TP + FN) measures how many real disease cases the model
+  catches. A screening model should have high recall, i.e. few false negatives.
+* Precision = TP / (TP + FP) measures how many flagged patients are really sick.
+* ROC-AUC measures how well the model RANKS sick patients above healthy ones across
+  ALL decision thresholds (0.5 = random, 1.0 = perfect). A model with high AUC can be
+  moved to a lower threshold to raise recall, at the cost of more false positives.
+* With only ~61 test patients, one patient changes accuracy by ~1.6 percentage points,
+  so small differences between models are NOT statistically meaningful. The CV scores
+  saved in each saved_model/best_params.json give a second, more stable estimate.
+
+EDUCATIONAL USE ONLY: this project is a machine-learning exercise on a small 1988 research dataset. It is NOT a clinically validated diagnostic system and must never be used to make medical decisions.

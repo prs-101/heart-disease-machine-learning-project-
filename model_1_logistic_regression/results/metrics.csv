@@ -1,0 +1,2 @@
+Algorithm,Accuracy,Precision,Recall,F1-score,ROC-AUC,Specificity,TN,FP,FN,TP
+Logistic Regression,0.8852,0.8387,0.9286,0.8814,0.961,0.8485,28,5,2,26

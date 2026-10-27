@@ -1,0 +1,77 @@
+EXPLORATORY DATA ANALYSIS SUMMARY
+============================================================
+Rows: 303   Features: 13
+
+Numerical feature statistics:
+          age  trestbps    chol  thalach  oldpeak      ca
+count  303.00    303.00  303.00   303.00   303.00  299.00
+mean    54.44    131.69  246.69   149.61     1.04    0.67
+std      9.04     17.60   51.78    22.88     1.16    0.94
+min     29.00     94.00  126.00    71.00     0.00    0.00
+25%     48.00    120.00  211.00   133.50     0.00    0.00
+50%     56.00    130.00  241.00   153.00     0.80    0.00
+75%     61.00    140.00  275.00   166.00     1.60    1.00
+max     77.00    200.00  564.00   202.00     6.20    3.00
+
+Mean of numerical features by target (0 = no disease, 1 = disease):
+          age  trestbps    chol  thalach  oldpeak    ca
+target                                                 
+0       52.59    129.25  242.64   158.38     0.59  0.27
+1       56.63    134.57  251.47   139.26     1.57  1.14
+
+Disease rate (% target = 1) within each category:
+
+[sex] Sex
+        count  disease_rate
+sex                        
+female     97          25.8
+male      206          55.3
+
+[cp] Chest pain type
+                  count  disease_rate
+cp                                   
+asymptomatic        144          72.9
+atypical_angina      50          18.0
+non_anginal_pain     86          20.9
+typical_angina       23          30.4
+
+[fbs] Fasting blood sugar > 120 mg/dl
+     count  disease_rate
+fbs                     
+no     258          45.3
+yes     45          48.9
+
+[restecg] Resting ECG result
+                  count  disease_rate
+restecg                              
+lv_hypertrophy      148          54.1
+normal              151          37.1
+st_t_abnormality      4          75.0
+
+[exang] Exercise-induced angina
+       count  disease_rate
+exang                     
+no       204          30.9
+yes       99          76.8
+
+[slope] Slope of the peak exercise ST segment
+             count  disease_rate
+slope                           
+downsloping     21          57.1
+flat           140          65.0
+upsloping      142          25.4
+
+[thal] Thallium stress test result
+                   count  disease_rate
+thal                                  
+fixed_defect          18          66.7
+normal               166          22.3
+reversible_defect    117          76.1
+
+Correlation of numerical features with target:
+thalach    -0.417
+chol        0.085
+trestbps    0.151
+age         0.223
+oldpeak     0.425
+ca          0.460

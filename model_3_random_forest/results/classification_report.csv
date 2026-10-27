@@ -1,0 +1,6 @@
+,precision,recall,f1-score,support
+No disease (0),0.9333,0.8485,0.8889,33.0
+Disease (1),0.8387,0.9286,0.8814,28.0
+accuracy,0.8852,0.8852,0.8852,0.8852
+macro avg,0.886,0.8885,0.8851,61.0
+weighted avg,0.8899,0.8852,0.8854,61.0

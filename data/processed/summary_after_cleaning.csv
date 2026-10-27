@@ -1,0 +1,15 @@
+column,description,dtype,missing,missing_pct,unique_values,min,max,mean
+age,Age in years,float64,0,0.0,41,29.0,77.0,54.439
+sex,Sex,object,0,0.0,2,,,
+cp,Chest pain type,object,0,0.0,4,,,
+trestbps,Resting blood pressure (mm Hg),float64,0,0.0,50,94.0,200.0,131.69
+chol,Serum cholesterol (mg/dl),float64,0,0.0,152,126.0,564.0,246.693
+fbs,Fasting blood sugar > 120 mg/dl,object,0,0.0,2,,,
+restecg,Resting ECG result,object,0,0.0,3,,,
+thalach,Maximum heart rate achieved,float64,0,0.0,91,71.0,202.0,149.607
+exang,Exercise-induced angina,object,0,0.0,2,,,
+oldpeak,ST depression induced by exercise relative to rest,float64,0,0.0,40,0.0,6.2,1.04
+slope,Slope of the peak exercise ST segment,object,0,0.0,3,,,
+ca,Number of major vessels (0-3) coloured by fluoroscopy,float64,4,1.32,4,0.0,3.0,0.672
+thal,Thallium stress test result,object,2,0.66,3,,,
+target,"Binary target (0 = no disease, 1 = disease)",int64,0,0.0,2,0,1,0.459
